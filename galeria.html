@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galeria - Barber Shop</title>
+    <link rel="stylesheet" href="../css/style_galeria.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<header>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="loc.html">Localizações</a></li>
+            <li><a href="servicos.html">Serviços</a></li>
+            <li><a href="contactos.html">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Gallery Hero Section -->
+<section class="gallery-hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+        <h1>NOSSA GALERIA</h1>
+        <h2>CORTES ESPECIAIS</h2>
+        <p>Descubra a arte por trás de cada corte</p>
+    </div>
+</section>
+
+<!-- Gallery Filter -->
+<section class="gallery-filter">
+    <div class="filter-container">
+        <button class="filter-btn active" data-filter="all">TODOS</button>
+        <button class="filter-btn" data-filter="fade">FADE</button>
+        <button class="filter-btn" data-filter="classic">CLÁSSICOS</button>
+        <button class="filter-btn" data-filter="modern">MODERNOS</button>
+        <button class="filter-btn" data-filter="beard">BARBAS</button>
+    </div>
+</section>
+
+<!-- Gallery Grid -->
+<section class="gallery-grid">
+    <div class="gallery-container">
+        
+        <div class="gallery-item" data-category="fade">
+            <div class="gallery-image">
+                <img src="../images/fadepre.jpg" alt="Fade Precision">
+                <div class="gallery-overlay">
+                    <h3>FADE PRECISION</h3>
+                    <p>Degradê perfeito com transição suave</p>
+                    <span class="cut-type">FADE</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-item" data-category="fade">
+            <div class="gallery-image">
+                <img src="../images/skinfad.jpg" alt="Skin Fade">
+                <div class="gallery-overlay">
+                    <h3>SKIN FADE</h3>
+                    <p>Transição completa até a pele</p>
+                    <span class="cut-type">FADE</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="gallery-item" data-category="classic">
+            <div class="gallery-image">
+                <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=400&h=500&fit=crop" alt="Side Part">
+                <div class="gallery-overlay">
+                    <h3>SIDE PART</h3>
+                    <p>Risco lateral com precisão milimétrica</p>
+                    <span class="cut-type">CLÁSSICO</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modern Cuts - KEEPING THESE -->
+        <div class="gallery-item" data-category="modern">
+            <div class="gallery-image">
+                <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=400&h=500&fit=crop" alt="Texturizado Moderno">
+                <div class="gallery-overlay">
+                    <h3>TEXTURIZADO</h3>
+                    <p>Volume e movimento natural</p>
+                    <span class="cut-type">MODERNO</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Beard Styles - KEEPING THIS ONE -->
+        <div class="gallery-item" data-category="beard">
+            <div class="gallery-image">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop" alt="Barba Completa">
+                <div class="gallery-overlay">
+                    <h3>BARBA COMPLETA</h3>
+                    <p>Volume e manutenção profissional</p>
+                    <span class="cut-type">BARBA</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- More Specialty Cuts - KEEPING THESE -->
+        <div class="gallery-item" data-category="fade">
+            <div class="gallery-image">
+                <img src="../images/low.jpg" alt="Taper Fade">
+                <div class="gallery-overlay">
+                    <h3>TAPER FADE</h3>
+                    <p>Degradê suave nas laterais</p>
+                    <span class="cut-type">FADE</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-item" data-category="modern">
+            <div class="gallery-image">
+                <img src="../images/pompa.jpg" alt="Pompadour">
+                <div class="gallery-overlay">
+                    <h3>POMPADOUR</h3>
+                    <p>Volume superior com estilo retro</p>
+                    <span class="cut-type">MODERNO</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="gallery-cta">
+    <div class="cta-container">
+        <h3>INSPIROU-SE?</h3>
+        <p>Traga a sua referência e criamos o seu estilo único</p>
+        <a href="contactos.html"><button class="cta-gallery">AGENDAR CORTE ESPECIAL</button></a>
+    </div>
+</section>
+
+<script>
+// Gallery Filter Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            const filterValue = this.getAttribute('data-filter');
+            
+            galleryItems.forEach(item => {
+                if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                    item.style.display = 'block';
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'scale(1)';
+                    }, 50);
+                } else {
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.8)';
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+    });
+
+    // Simple background rotation for gallery page
+    const galleryImages = [
+        'https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=1920&q=80'];
+
+    
+});
+</script>
+
+</body>
+</html>
