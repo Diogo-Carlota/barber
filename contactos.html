@@ -85,55 +85,79 @@
         </div>
 
         <!-- Contact Form -->
-        <div class="contact-form">
-            <h3>ENVIA UMA MENSAGEM</h3>
-            <form id="contactForm">
-                <div class="form-group">
-                    <label for="name">NOME COMPLETO *</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">EMAIL *</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">TELEFONE</label>
-                    <input type="tel" id="phone" name="phone">
-                </div>
-
-                <div class="form-group">
-                    <label for="location">LOCALIZAÇÃO PREFERIDA</label>
-                    <select id="location" name="location">
-                        <option value="">Selecciona uma loja</option>
-                        <option value="porto">Porto - Rua Santa Catarina</option>
-                        <option value="lisboa">Lisboa - Avenida da Liberdade</option>
-                        <option value="algarve">Algarve - Lagos</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="service">SERVIÇO DE INTERESSE</label>
-                    <select id="service" name="service">
-                        <option value="">Selecciona um serviço</option>
-                        <option value="corte">Corte Masculino</option>
-                        <option value="infantil">Corte Infantil</option>
-                        <option value="barba">Acabamento de Barba</option>
-                        <option value="combo">Combo Completo</option>
-                        <option value="outro">Outro</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">MENSAGEM *</label>
-                    <textarea id="message" name="message" rows="5" required placeholder="Descreva a sua questão ou pedido..."></textarea>
-                </div>
-
-                <button type="submit" class="cta-contact">ENVIAR MENSAGEM</button>
-            </form>
-        </div>
+<form id="contactForm">
+    <div class="form-group">
+        <label for="name">NOME COMPLETO *</label>
+        <input type="text" id="name" name="name" required>
     </div>
+
+    <div class="form-group">
+        <label for="email">EMAIL *</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+
+    <div class="form-group">
+        <label for="phone">TELEFONE *</label>
+        <input type="tel" id="phone" name="phone" required>
+    </div>
+
+    <div class="form-group">
+        <label for="location">LOCALIZAÇÃO PREFERIDA</label>
+        <select id="location" name="location">
+            <option value="">Selecciona uma loja</option>
+            <option value="Porto - Rua Santa Catarina">Porto - Rua Santa Catarina</option>
+            <option value="Lisboa - Avenida da Liberdade">Lisboa - Avenida da Liberdade</option>
+            <option value="Algarve - Lagos">Algarve - Lagos</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="service">SERVIÇO DE INTERESSE</label>
+        <select id="service" name="service">
+            <option value="">Selecciona um serviço</option>
+            <option value="Corte Masculino (€20)">Corte Masculino (€20)</option>
+            <option value="Corte Infantil (€15)">Corte Infantil (€15)</option>
+            <option value="Acabamento de Barba (€12)">Acabamento de Barba (€12)</option>
+            <option value="Combo Completo (€28)">Combo Completo (€28)</option>
+            <option value="Coloração (€25-€40)">Coloração (€25-€40)</option>
+            <option value="Limpeza Facial (€18)">Limpeza Facial (€18)</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="preferred_date">DATA PREFERIDA</label>
+        <input type="date" id="preferred_date" name="preferred_date">
+    </div>
+
+    <div class="form-group">
+        <label for="preferred_time">HORA PREFERIDA</label>
+        <select id="preferred_time" name="preferred_time">
+            <option value="">Selecionar hora</option>
+            <option value="09:00">09:00</option>
+            <option value="09:30">09:30</option>
+            <option value="10:00">10:00</option>
+            <option value="10:30">10:30</option>
+            <option value="11:00">11:00</option>
+            <option value="11:30">11:30</option>
+            <option value="14:00">14:00</option>
+            <option value="14:30">14:30</option>
+            <option value="15:00">15:00</option>
+            <option value="15:30">15:30</option>
+            <option value="16:00">16:00</option>
+            <option value="16:30">16:30</option>
+            <option value="17:00">17:00</option>
+            <option value="17:30">17:30</option>
+            <option value="18:00">18:00</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="message">MENSAGEM *</label>
+        <textarea id="message" name="message" rows="5" required placeholder="Descreva a sua questão ou pedido..."></textarea>
+    </div>
+
+    <button type="submit" class="cta-contact">ENVIAR MENSAGEM</button>
+</form>
 </section>
 
 <!-- Map Section -->
@@ -173,7 +197,63 @@ const contactImages = [
 
 
 </script>
+<!-- EmailJS SDK -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
+<script>
+// Initialize EmailJS with your credentials
+(function() {
+    emailjs.init("IwlOQUg04gzKLjHW_"); // Get this from EmailJS dashboard
+})();
+
+// Handle form submission
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    
+    // Show loading state
+    submitBtn.textContent = 'A ENVIAR...';
+    submitBtn.disabled = true;
+    
+    // Send email
+    emailjs.sendForm('service_ar3aqi7', 'template_zeclj7u', this)
+        .then(function() {
+            // Success
+            submitBtn.textContent = '✅ MENSAGEM ENVIADA!';
+            submitBtn.style.background = '#4CAF50';
+            
+            // Show success message
+            alert('Obrigado! A sua mensagem foi enviada. Entraremos em contacto brevemente.');
+            
+            // Reset form after 2 seconds
+            setTimeout(() => {
+                document.getElementById('contactForm').reset();
+                submitBtn.textContent = originalText;
+                submitBtn.style.background = '';
+                submitBtn.disabled = false;
+            }, 2000);
+            
+        }, function(error) {
+            // Error
+            submitBtn.textContent = '❌ ERRO AO ENVIAR';
+            submitBtn.style.background = '#ff4444';
+            
+            alert('Erro ao enviar mensagem. Por favor, tente novamente ou contacte-nos diretamente.');
+            
+            setTimeout(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.style.background = '';
+                submitBtn.disabled = false;
+            }, 3000);
+        });
+});
+</script>
+
+
+    
 </body>
 
 </html>
+
