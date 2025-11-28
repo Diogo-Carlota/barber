@@ -1,0 +1,179 @@
+ body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: white;
+        }
+
+        /* NAVBAR STYLES */
+        .navbar {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 20px 0;
+            margin: 0;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            transition: 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            background: rgba(200, 200, 200, 0.3);
+            backdrop-filter: blur(4px);
+        }
+
+        /* LOCATIONS HERO SECTION */
+        .locations-hero {
+            position: relative;
+            height: 50vh;
+            background: url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=1920&q=80') center/cover no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 22px;
+            letter-spacing: 4px;
+            color: #d8b65c;
+            margin: 0;
+        }
+
+        .hero-content h2 {
+            font-size: 60px;
+            font-weight: bold;
+            color: #d8b65c;
+            margin: 10px 0 20px;
+        }
+
+        /* LOCATIONS GRID */
+        .locations-grid {
+            background: #0c1a1a;
+            padding: 80px 20px;
+        }
+
+        .locations-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .location-card {
+            background: #1a2a2a;
+            margin-bottom: 40px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            display: flex;
+        }
+
+        .location-image {
+            flex: 1;
+            min-height: 300px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .location-info {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .location-info h3 {
+            color: #d8b65c;
+            font-size: 32px;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .location-info .address {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .location-info .hours,
+        .location-info .phone {
+            font-size: 16px;
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+
+        /* OUTLINE BUTTON */
+        .cta-outline {
+            padding: 12px 30px;
+            border: 2px solid #d8b65c;
+            background: transparent;
+            color: #d8b65c;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 20px;
+            width: fit-content;
+        }
+
+        .cta-outline:hover {
+            background: #d8b65c;
+            color: #000;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .location-card {
+                flex-direction: column;
+            }
+            
+            .location-image {
+                min-height: 200px;
+            }
+            
+            .locations-hero {
+                height: 40vh;
+            }
+            
+            .hero-content h2 {
+                font-size: 40px;
+            }
+            
+            .navbar ul {
+                gap: 20px;
+            }
+            
+            .navbar ul li a {
+                font-size: 16px;
+                padding: 8px 16px;
+            }
+        }

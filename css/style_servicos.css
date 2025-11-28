@@ -1,0 +1,236 @@
+/* style_servicos.css - Serviços Page Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: white;
+}
+
+/* NAVBAR STYLES */
+.navbar {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px 0;
+    margin: 0;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    background: rgba(200, 200, 200, 0.3);
+    backdrop-filter: blur(4px);
+}
+
+/* SERVICES HERO SECTION */
+.services-hero {
+    position: relative;
+    height: 40vh;
+    background: url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=1920&q=80') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 22px;
+    letter-spacing: 4px;
+    color: #d8b65c;
+    margin: 0;
+}
+
+.hero-content h2 {
+    font-size: 48px;
+    font-weight: bold;
+    color: #d8b65c;
+    margin: 10px 0 20px;
+}
+
+/* SERVICES GRID */
+.services-grid {
+    background: #0c1a1a;
+    padding: 80px 20px;
+}
+
+.services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: #1a2a2a;
+    padding: 40px 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    border-color: #d8b65c;
+}
+
+.service-card.featured {
+    border: 2px solid #d8b65c;
+    position: relative;
+    transform: scale(1.05);
+}
+
+.service-icon {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    color: #d8b65c;
+    font-size: 24px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.service-desc {
+    color: #ccc;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.price {
+    font-size: 42px;
+    font-weight: bold;
+    color: #d8b65c;
+    margin: 20px 0;
+}
+
+.savings {
+    background: #d8b65c;
+    color: #000;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.service-features {
+    list-style: none;
+    padding: 0;
+    margin: 25px 0;
+    text-align: left;
+}
+
+.service-features li {
+    padding: 8px 0;
+    color: #ccc;
+    position: relative;
+    padding-left: 25px;
+}
+
+.service-features li:before {
+    content: "✓";
+    color: #d8b65c;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.cta-service {
+    padding: 15px 30px;
+    border: 2px solid #d8b65c;
+    background: transparent;
+    color: #d8b65c;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.cta-service:hover {
+    background: #d8b65c;
+    color: #000;
+}
+
+.cta-service.featured {
+    background: #d8b65c;
+    color: #000;
+}
+
+.cta-service.featured:hover {
+    background: #b39545;
+    border-color: #b39545;
+}
+
+/* PROMO BANNER */
+.promo-banner {
+    background: linear-gradient(135deg, #d8b65c 0%, #b39545 100%);
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.promo-content h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.promo-content p {
+    font-size: 20px;
+    color: #000;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.cta-promo {
+    padding: 15px 40px;
+    border: 2px solid #000;
+    background: transparent;
+    color: #000;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.cta-promo:hover {
+    background: #000;
+    color: #d8b65c;
+}
+
