@@ -280,4 +280,19 @@ body {
 /* Animation for filter */
 .gallery-item {
     transition: all 0.3s ease;
+
 }
+
+@media (max-width:1000px){
+      .header, .hero, .inventory, .two-col, .contact, footer{padding-left:6%;padding-right:6%}
+      .hero{flex-direction:column;gap:20px;text-align:center}
+      .hero .left, .hero .right{flex:unset;width:100%}
+      .two-col{flex-direction:column}
+      form{grid-template-columns:1fr}
+      .btn-send{grid-column:1/2}
+    }
+
+    @media (max-width:600px){
+      .hero h1{font-size:26px}
+      .card img{height:150px}
+    }
